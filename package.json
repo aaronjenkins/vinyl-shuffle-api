@@ -4,5 +4,8 @@
   "main": "index.js",
   "repository": "git@github.com:aaronjenkins/vinyl-shuffle-api.git",
   "author": "aaronjenkins <aaron@aaronjenkins.me>",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "@notionhq/client": "^0.4.9"
+  }
 }
