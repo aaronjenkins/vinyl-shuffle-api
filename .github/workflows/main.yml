@@ -1,0 +1,34 @@
+name: CI/CD Pipeline
+on:
+ push: 
+   branches: 
+     - main
+jobs:
+    unit_test: 
+      name: unit test
+      runs-on: ubuntu-latest
+      steps: 
+        - name: checkout source code
+          uses: actions/checkout@v1
+        - name: yarn install
+          run: yarn install --dev
+          
+    deploy_zip:
+      name: deploy lambda function
+      runs-on: ubuntu-latest
+      needs: unit_test
+      steps:
+        - name: checkout source code
+          uses: actions/checkout@v1
+        - name: yarn install & zip
+          run: yarn install && zip -r deployment.zip ./
+        - name: default deploy
+          uses: appleboy/lambda-action@master
+          with:
+            aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+            aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+            aws_region: ${{ secrets.AWS_REGION }}
+            function_name: StudioAPI
+            zip_file: deployment.zip
+            memory_size: 128
+            runtime: nodejs12.x
