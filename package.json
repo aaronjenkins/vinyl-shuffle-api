@@ -1,0 +1,8 @@
+{
+  "name": "vinyl-shuffle-api",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:aaronjenkins/vinyl-shuffle-api.git",
+  "author": "aaronjenkins <aaron@aaronjenkins.me>",
+  "license": "MIT"
+}
