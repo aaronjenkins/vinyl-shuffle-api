@@ -1,6 +1,4 @@
 const { Client } = require('@notionhq/client');
-const dotenv = require('dotenv');
-dotenv.config();
 
 exports.handler = async (event) => {
     const notion = new Client({
@@ -11,7 +9,7 @@ exports.handler = async (event) => {
     });
     const response = {
         statusCode: 200,
-        body: JSON.stringify(page),
+        body: page,
     };
     return response;
 };
