@@ -1,8 +1,16 @@
+const { Client } = require("@notionhq/client")
+const dotenv = require("dotenv")
+dotenv.config()
+
 exports.handler = async (event) => {
-    // TODO implement
+    
+    const notion = new Client({
+        auth: process.env.NOTION_TOKEN,
+      })
+    let page = await notion.databases.retrieve()
     const response = {
         statusCode: 200,
-        body: JSON.stringify('Hello from github!'),
+        body: JSON.stringify(page),
     };
     return response;
 };
