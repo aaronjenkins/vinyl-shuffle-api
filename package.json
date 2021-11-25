@@ -6,6 +6,7 @@
   "author": "aaronjenkins <aaron@aaronjenkins.me>",
   "license": "MIT",
   "dependencies": {
-    "@notionhq/client": "^0.4.9"
+    "@notionhq/client": "^0.4.9",
+    "dotenv": "^10.0.0"
   }
 }
