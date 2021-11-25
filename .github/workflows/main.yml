@@ -21,4 +21,4 @@ jobs:
             function_name: vinylshuffle
             zip_file: deployment.zip
             memory_size: 128
-            runtime: nodejs12.x
+            runtime: nodejs14.x
